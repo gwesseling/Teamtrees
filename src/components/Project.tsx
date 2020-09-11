@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {toStringWithCommas} from '../../helpers';
+import {toStringWithCommas} from '../helpers';
 
 const ProjectCard = styled(Card)`
     background: #f4f4f2;
@@ -55,6 +55,10 @@ const Badge = styled.span`
     text-transform: uppercase;
 `;
 
+const Description = styled.p`
+    color: #625b51;
+`;
+
 type Project = {
     title: string; 
     subtitle: string;
@@ -82,7 +86,7 @@ export default function Projects({title, items}: Props) {
                             <p>
                                 <Badge>{toStringWithCommas(trees)} trees</Badge>
                             </p>
-                            <p>{description}</p>
+                            <Description>{description}</Description>
                         </ProjectCard>
                     </Col>
                 )}
