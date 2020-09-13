@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
-import CountUp from './CountUp';
+import Link from '_COMPONENTS/Link';
+import CountUp from '_COMPONENTS/CountUp';
 
-import logo from '../assets/logo.svg';
-import counterStar from '../assets/counter-starburst-light.svg'
-import counterUnderline from '../assets/counter-underline.svg';
+import logo from '_ASSETS/logo.svg';
+import counterStar from '_ASSETS/counter-starburst-light.svg'
+import counterUnderline from '_ASSETS/counter-underline.svg';
 
 const BannerContainer = styled.div`
     display: flex;
@@ -49,14 +49,20 @@ const CounterUnderline = styled.img`
 const BannerText = styled.p`
     font-size: 1.25rem;
     color: white;
-`
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+`;
 
 type Props = {
     trees: number,
 }
 
+/** 
+ * Banner content component.
+ */
 export default function BannerContent({trees}: Props) {
-
     return (
          <BannerContainer>
             <Logo src={logo} />

@@ -22,6 +22,9 @@ type Props = {
     link: string,
 }
 
+/** 
+ * Link component.
+ */
 export default function Link({children, link}: Props) {
 
     return (

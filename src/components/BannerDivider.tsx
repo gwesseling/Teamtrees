@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import treeBackground from '../assets/tree-background-full.png';
-import divider from '../assets/divider-right-condensed.svg';
+import treeBackground from '_ASSETS/tree-background-full.png';
+import divider from '_ASSETS/divider-right-condensed.svg';
 
 const Divider = styled.div`
     position: relative;
@@ -22,7 +22,9 @@ const DividerImage = styled.img`
     left: 0;
 `;
 
-
+/** 
+ * Banner divider
+ */
 export default function BannerGreen() {
     return (
         <Divider>

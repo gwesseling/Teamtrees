@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {toStringWithCommas} from '../helpers';
+import {toStringWithCommas} from '_LIBS/helpers';
 
 const ProjectCard = styled(Card)`
     background: #f4f4f2;
@@ -73,7 +73,10 @@ type Props = {
     items: Array<Project>
 }
 
-export default function Projects({title, items}: Props) {
+/** 
+ * Project card.
+ */
+export default function Project({title, items}: Props) {
     return (
         <ProjectContainer>
             <ProjectTitle>{title}</ProjectTitle>

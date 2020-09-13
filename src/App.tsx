@@ -13,7 +13,9 @@ const PageContainer = styled.div`
     background: url(${background}) no-repeat center bottom,linear-gradient(#fff,#f6f6f4);
 `;
 
-
+/** 
+ * App entrypoint
+ */
 function App() {
   return (
     <PageContainer>

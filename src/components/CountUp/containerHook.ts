@@ -1,21 +1,18 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef, useCallback} from "react";
 
 const DELAY = 35;
 
-// TODO: make is ease more (slow down at the end)
 /**
  * Handles count up animation
  */
-export default function useCountUpAnimation(animation = false, val = 0, deci: number) {
+export default function useCountUpAnimation(animation = false, val = 0) {
     const [count, setCount] = useState(0);
     const countRef = useRef(count);
-    let timeout;
 
     /**
      * Set timeout for counter animation.
      */
-    const setTimeoutCounter = () => {
-        // TODO: rename variables
+    const setTimeoutCounter = useCallback(() => {
         let addon = val / 100;
 
         // check if addon is lower the rest value of val - current count
@@ -26,25 +23,21 @@ export default function useCountUpAnimation(animation = false, val = 0, deci: nu
 
         // Add addon value to current count.
         const newCount = (countRef.current += addon);
-        // Calculate value for rounding on (multiple) digits
-        const round = Math.pow(10, deci);
-        // Round number to solid number or a number with (mulitple) digits
-        const c = Number.isInteger(val) ? Math.trunc(newCount) : Math.floor(newCount * round) / round;
 
-        setCount(c);
+        setCount(newCount);
 
         if (countRef.current < val) {
-            timeout = setTimeout(setTimeoutCounter, DELAY);
+            setTimeout(setTimeoutCounter, DELAY);
         }
-    };
+    }, [val]);
 
     useEffect(() => {
         if (val > 0 && animation) {
-            timeout = setTimeout(setTimeoutCounter, DELAY);
+            setTimeout(setTimeoutCounter, DELAY);
         } else {
             setCount(val);
         }
-    }, [animation, val]);
+    }, [animation, setTimeoutCounter, val]);
 
     return {
         count,

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import useScrollUp from './containerHook';
+import Animation from '_COMPONENTS/Animation';
 
-import spaceship from '../../assets/spaceship.svg';
+import spaceship from '_ASSETS/spaceship.svg';
 
 const ScrollUpContainer = styled.button`
     display: flex;
@@ -20,6 +21,11 @@ const ScrollUpContainer = styled.button`
     font-weight: 600;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
     outline: none !important;
+
+    @media screen and (max-width: 768px) {
+        right: 50%;
+        transform: translateX(50%);
+    }
 `;
 
 const ScrollImage = styled.img`
@@ -28,21 +34,27 @@ const ScrollImage = styled.img`
     margin-right: 15px;
 `;
 
+/** 
+ * Scroll up button component.
+ */
 export default function ScrollUp() {
     const {isActive} = useScrollUp();
 
+    /** 
+     * Scroll to top of the page.
+     */
     function scrollTop() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    if (!isActive) {
-        return null;
-    }
-
     return (
-        <ScrollUpContainer onClick={scrollTop}>
-            <ScrollImage src={spaceship} />
-            Scroll to top
-        </ScrollUpContainer>
+        <Animation animation = "fade">
+            {isActive ? 
+                <ScrollUpContainer onClick={scrollTop}>
+                    <ScrollImage src={spaceship} />
+                    Scroll to top
+                </ScrollUpContainer> : null 
+            }
+        </Animation>
     );
 }
