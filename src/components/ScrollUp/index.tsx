@@ -22,6 +22,11 @@ const ScrollUpContainer = styled.button`
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
     outline: none !important;
 
+    &:hover {
+        background-color: #66874f;
+        border-color: #66874f;
+    }
+
     @media screen and (max-width: 768px) {
         right: 50%;
         transform: translateX(50%);

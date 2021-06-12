@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {toStringWithCommas} from '_LIBS/helpers';
+import {ProjectType} from '_COMPONENTS/App/containerHook';
 
 const ProjectCard = styled(Card)`
     background: #f4f4f2;
@@ -21,17 +22,17 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectTitle = styled.h1`
-    text-transform: uppercase;
     color: #273654;
+    font-weight: bold;
     font-weight: 600;
     margin-bottom: 25px;
     padding-left: 15px;
     padding-right: 15px;
-    border-bottom: 3px solid #273654;
 `;
 
 const Title = styled.h3`
     font-weight: bold;
+    font-size: 20px;
 `;
 
 const SubTitle = styled.h4`
@@ -59,18 +60,9 @@ const Description = styled.p`
     color: #625b51;
 `;
 
-type Project = {
-    title: string; 
-    subtitle: string;
-    description: string; 
-    trees: number; 
-    continent: string; 
-    year: string;
-}
-
 type Props = {
     title: string,
-    items: Array<Project>
+    items: Array<ProjectType>
 }
 
 /** 

@@ -55,23 +55,35 @@ const BannerText = styled.p`
     }
 `;
 
+const Plus = styled.p`
+    color: white;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+    font-size: 25px;
+`; 
+
+
 type Props = {
-    trees: number,
+    planted: number,
+    inprogress: number;
 }
 
 /** 
  * Banner content component.
  */
-export default function BannerContent({trees}: Props) {
+export default function BannerContent({planted, inprogress}: Props) {
     return (
          <BannerContainer>
             <Logo src={logo} />
             <CounterWrapper>
-                <CountUp value={trees} />
+                <CountUp value={planted} />
                 <SubTitle>trees planted</SubTitle>
+                <Plus>+</Plus>
+                <CountUp value={inprogress} />
+                <SubTitle>trees planned</SubTitle>
                 <CounterUnderline src={counterUnderline} />
             </CounterWrapper>
-            <BannerText>This website shows the current amount of trees planted by Arborday based on the projects listed on the Arborday project page*</BannerText>
+            <BannerText>This website shows the current number of trees planted by Arborday Foundation*</BannerText>
             <div className="mt-2 mb-5">
                 <Link link="https://teamtrees.org/">Donate to teamtrees</Link>
             </div>

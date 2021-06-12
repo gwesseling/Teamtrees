@@ -22,7 +22,7 @@ export default function useCountUpAnimation(animation = false, val = 0) {
         }
 
         // Add addon value to current count.
-        const newCount = (countRef.current += addon);
+        const newCount = Math.round(countRef.current += addon);
 
         setCount(newCount);
 

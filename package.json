@@ -20,7 +20,8 @@
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
     "styled-components": "5.1.1",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "use-http": "^1.0.16"
   },
   "scripts": {
     "start": "react-app-rewired start",

@@ -4,7 +4,8 @@
         "*": ["src/*"],
         "_COMPONENTS/*": ["src/components/*"],
         "_LIBS/*": ["src/*"],
-        "_ASSETS/*": ["src/assets/*"]
+        "_ASSETS/*": ["src/assets/*"],
+        "_STYLE/*": ["src/style/*"]
       }
     }
   }
